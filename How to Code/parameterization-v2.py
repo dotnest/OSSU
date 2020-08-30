@@ -20,8 +20,18 @@ def contains(s, los):
 def containsUBC(los):
     return contains("UBC", los)
 
+assert containsUBC([]) == False
+assert containsUBC(["McGill"]) == False
+assert containsUBC(["UBC"]) == True
+assert containsUBC(["McGill", "UBC"]) == True
+
 def containsMcGill(los):
     return contains("McGill", los)
+
+assert containsMcGill([]) == False
+assert containsMcGill(["UBC"]) == False
+assert containsMcGill(["McGill"]) == True
+assert containsMcGill(["UBC", "McGill"]) == True
 
 assert contains("UBC", []) == False
 assert contains("UBC", ["McGill"]) == False
@@ -46,8 +56,14 @@ def squares(lon):
 # def squares(lon):
 #     return [i**2 for i in lon]
 
+assert squares([]) == []
+assert squares([3, 4]) == [9, 16]
+
 def squareRoots(lon):
     return map2(math.sqrt, lon)
+
+assert squareRoots([]) == []
+assert squareRoots([9, 16]) == [3, 4]
 
 assert map2(lambda x: x**2, []) == []
 assert map2(lambda x: x**2, [3, 4]) == [9, 16]
@@ -69,8 +85,14 @@ def filter2(fltr, lon):
 def positiveOnly(lon):
     return filter2(lambda x: x>0, lon)
 
+assert positiveOnly([]) == []
+assert positiveOnly([1, -2, 3, -4]) == [1, 3]
+
 def negativeOnly(lon):
     return filter2(lambda x: x<0, lon)
+
+assert negativeOnly([]) == []
+assert negativeOnly([1, -2, 3, -4]) == [-2, -4]
 
 assert filter2(lambda x: x>0, []) == []
 assert filter2(lambda x: x>0, [1, -2, 3, -4]) == [1, 3]
