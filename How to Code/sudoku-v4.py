@@ -318,5 +318,19 @@ assert solve(BD4) == BD4s
 assert solve(BD5) == BD5s
 assert solve(BD7) == False
 
+def print_bd(bd):
+    for row in range(9):
+        for col in range(9):
+            print(bd[row_col_to_pos(row, col)] or "_", end=" ")
+            if col in [2, 5]:
+                print("| ", end="")
+        print()
+        if row in [2, 5]:
+            print("-" * 21)
+
+print_bd(BD4)
+print()
+print_bd(BD4s)
+
 if __name__ == "__main__":
     print("passed all")
